@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  --background-color: white;
+  --text-color: black;
+  --elements-color: white;
+  --bg-sh-color: #f6f7f8;
+  --linear-c1: #f6f7f8 0%;
+  --linear-c2: #edeef1 20%;
+  --linear-c3: #f6f7f8 40%;
+  --linear-c4: #f6f7f8 100%;
+
+  margin: 0;
+  font-family: Nunito, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.dark {
+  --background-color: hsl(207, 26%, 17%);
+  --text-color: white;
+  --elements-color: hsl(209, 23%, 22%);
+  --bg-sh-color: hsl(209, 23%, 22%);
+  --linear-c1: hsl(206, 19%, 35%) 0%;
+  --linear-c2: hsl(207, 20%, 30%) 20%;
+  --linear-c3: hsl(207, 22%, 29%) 40%;
+  --linear-c4: hsl(209, 23%, 22%) 100%;
+
+}
+
+main {
+  padding: 24px;
+}
+
+a {
+  text-decoration-line: none;
+  color: inherit;
+}
+
+.header-container {
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1);
+  padding-inline: 24px;
+  background-color: var(--elements-color);
+  position: relative;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.title {
+  font-weight: 800;
+}
+
+.theme-changer {
+  cursor: pointer;
+}
+.theme-changer i{
+    padding-right: 10px;
+}
+
+.countries-container {
+  max-width: 1200px;
+  margin-top: 16px;
+  display: flex;
+  gap: 64px;
+  flex-wrap: wrap;
+  margin-inline: auto;
+  justify-content: space-between;
+}
+
+.country-card {
+  display: inline-block;
+  width: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  padding-bottom: 24px;
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  background-color: var(--elements-color);
+}
+
+.country-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-size: 24px;
+  margin-block: 16px;
+}
+
+.card-text {
+  padding-inline: 16px;
+}
+
+.card-text p {
+  margin-block: 8px;
+}
+
+.country-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.search-filter-container {
+  max-width: 1200px;
+  margin-inline: auto;
+  margin-top: 16px;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.search-container {
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
+  max-width: 350px;
+  width: 100%;
+  border-radius: 4px;
+  padding-left: 24px;
+  color: #999;
+  overflow: hidden;
+  background-color: var(--elements-color);
+  color: var(--text-color);
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  padding: 16px;
+  width: 90%;
+  background-color: inherit;
+  color: inherit;
+}
+
+.search-container input::placeholder {
+  color: #999;
+}
+
+.filter-by-region {
+  width: 250px;
+  padding: 16px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  background-color: var(--elements-color);
+  color: var(--text-color);
+}
+
+.notification {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
+  color: white;
+  text-align: center;
+}
+
+.shimmer-card-container {
+  max-width: 1200px;
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+  gap: 64px;
+  margin-inline: auto;
+  transition: all 0.3s linear;
+}
+
+.shimmer-card {
+  width: 250px;
+  height: 345px;
+  border-radius: 8px;
+  background: var(--bg-sh-color);
+  background-image: linear-gradient(
+    to right,
+    var(--linear-c1),
+    var(--linear-c2),
+    var(--linear-c3),
+    var(--linear-c4)
+  );
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  display: inline-block;
+  position: relative;
+  animation: shimmer 0.8s infinite linear;
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .countries-container {
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .header-content p {
+    font-size: 12px;
+  }
+
+  .search-filter-container {
+    flex-direction: column; 
+  }
+  .search-container{
+    max-width: 100%;
+  }
+
+  .shimmer-card-container{
+justify-items: center;
+  
+}}
